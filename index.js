@@ -1,18 +1,29 @@
 const btn = document.querySelector('button')
 const rect = document.querySelector('.rect')
+const p = document.createElement('p')
 
 for (let i = 0; i < 7; i++) {
 	for (let j = 0; j < 7; j++) {
-		const cell = document.createElement('div')
+		var cell = document.createElement('div')
 		cell.classList.add('cell')
+		cell.style.backgroundColor = `transparent`
 		rect.append(cell)
 	}
 }
 
+if (cell.style.backgroundColor === `transparent`) {
+	p.textContent = 'Сгенерируйте лого'
+	rect.append(p)
+}
+
 const randomFill = () => {
-	rect
-		.querySelectorAll('.cell')
-		.forEach(cell => cell.classList.remove('active'))
+	p.remove()
+
+	rect.querySelectorAll('.cell').forEach(cell => {
+		cell.style.backgroundColor = `transparent`
+	})
+
+	const color = Math.floor(Math.random() * 16777215).toString(16)
 
 	const numCells = Math.floor(Math.random() * 49) + 1
 
@@ -21,10 +32,8 @@ const randomFill = () => {
 		const y = Math.floor(Math.random() * 7)
 		const cell = document.querySelector(`.cell:nth-child(${y * 7 + x + 1})`)
 
-		cell.classList.add('active')
+		cell.style.backgroundColor = `#${color}`
 	}
 }
-
-randomFill()
 
 btn.addEventListener('click', randomFill)
