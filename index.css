@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #000;
+	color: #fff;
+}
+
+.rect {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+
+	border-radius: 50%;
+	overflow: hidden;
+
+	width: 210px;
+	height: 210px;
+	background-color: #fff;
+}
+
+.cell {
+	/* z-index: 1; */
+	width: 30px;
+	height: 30px;
+	border: 1px solid #fff;
+	/* background-color: #fff; */
+}
+
+.active {
+	background-color: pink;
+}
